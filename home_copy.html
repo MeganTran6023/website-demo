@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan Tran</title>
+    <link rel="stylesheet" href="styles_copy.css">
+    <script defer src="script_copy.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="character-container">
+      <div class="centered">Welcome to my Site!</div>
+    </div>
+
+    <div class="fade-in-image">
+      <img id="mainImage" src="homeCharacter.gif" alt="sleeping character"/>
+    </div>
+
+    <div class="character-container2">
+      <div class="centered2"
+      onmouseover="document.getElementById('mainImage').src='CodingGif.gif'"
+        onmouseout="document.getElementById('mainImage').src='homeCharacter.gif'">
+        <a href="https://github.com/MeganTran6023">Projects</a></div>
+      <div class="centered3"
+        onmouseover="document.getElementById('mainImage').src='Resume.gif'"
+        onmouseout="document.getElementById('mainImage').src='homeCharacter.gif'">
+        <a href="#" id="resumeLink">Resume</a></div>
+      <div class="centered4"        
+      onmouseover="document.getElementById('mainImage').src='AboutMe.gif'"
+      onmouseout="document.getElementById('mainImage').src='homeCharacter.gif'">
+      <a href="#">About Me</a></div>
+    </div>
+
+      <!--This is where we set up modal -->
+      <div class="wrapper">
+        <span class="icon-close">
+          <img src="close_button.jpg" alt="Close" />
+        </span>
+                <div class="input-box"> 
+                    <span class="icon">
+                      <img src="aboutMe_MT.JPG" alt="Me" />
+                    </span>
+                </div>
+                <div class="text">
+                  <h2>About Me</h2>
+                  <p>Hi, I'm Megan Tran! <br> <br>📖 I am a Master's in Computer Science Student at USF.<br><br>🖥️ My graduate research focuses on applying machine learning in healthcare.<br><br>🎻 During my free time, I play the violin and draw.</p>
+                </div>
+        </div>
+        <!--Modal for resume-->
+            <!-- Modal for Resume -->
+    <div class="wrapper_resume">
+      <span class="icon-close1">
+        <img src="close_button.jpg" alt="Close" />
+      </span>
+      <div class="input-box"> 
+                    <span class="icon1">
+                      <img src="Resume_MT_img.jpg" alt="Me" />
+                    </span>
+                </div>
+    </div>
+  </body>
+
+</html>

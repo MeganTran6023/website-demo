@@ -1,0 +1,220 @@
+4/6
+--------
+* centered animated gif for website
+* fade in gif
+
+TO DO:
+- js responsive nav bar: github and linkedin (left side 3 lines)
+- 3 buttons: About Me, Projects, Resume (horizontal block inline)
+- add sound effect when hover and click
+- Welcome text above - sky blue pale
+- button style: blue outline, fill transparent
+- animations for hovering - character
+
+4/7
+--------
+* added top text by creating text as its own div ( container and h1)
+* working on adding responsive buttons at bottom of gif
+
+4/8
+--------
+- addded and centered text by reinheriting from top text for projects
+- focus on inline block for other buttons before add pixel image for button
+- centered subchildren in container
+
+4/9
+--------
+used absolute which overrides the stackign of texts
+
+hovering effect keep textx centered: 
+The shifting on hover for .centered4 is caused by it not having the left: 50% rule like .centered2 does. That, combined with transform: translate(-50%, -50%), centers the element horizontally.
+https://www.w3schools.com/cssref/tryit.php?filename=trycss_sel_hover
+🔍 Why it works:
+left: 50% positions the left edge of the element at the center of the screen.
+
+transform: translate(-50%, -50%) moves the element back by half its own width and height, which centers it perfectly.
+
+4/12
+--------
+change image charracter when hovering text
+
+- add id="mainImage" to image lines
+
+Why
+You need id="mainImage" because:
+
+JavaScript is trying to change the image using getElementById('mainImage').
+Without the ID, it doesn't know what to change.
+
+fixed centering position of "centerd3" text
+
+How: add left: 50%; (change percentage)
+
+4/17
+
+remove default blue color and underline in links
+--------
+a {
+  color: inherit; // black text
+  text-decoration: none; //remove underline
+}
+
+4/19
+--------
+Used lightbox to allow users to see resume
+
+5/4 - 5/6
+--------
+modal pop up when click on "about me" in progress
+
+done: 
+- formatted wrapper container
+- position close button
+
+-zoom in 
+add transform: scale(0);/scale 1 in css for starting and active form
+
+how to resize content in the wrapper 
+
+ .wrapper .icon img (include the img tag)
+
+ 5/9
+ ----------
+ Margin:
+
+Purpose:
+To create space between an element and other elements on the page. 
+Effect:
+Pushes the element away from surrounding content, affecting the placement of other elements. 
+Example:
+Adding a margin-top: 20px; on a paragraph would create 20px of space between the paragraph and the element above it. 
+Visual:
+Imagine the element as a box. The margin is the space around that box, pushing it away from other boxes. 
+
+Padding:
+
+Purpose:
+To create space between an element's content and its border. 
+Effect:
+Increases the size of the element's content area, pushing the content away from the border. 
+Example:
+Adding a padding: 10px; on a button would make the button text appear 10px away from the button's border. 
+Visual:
+Imagine the element as a box with a border. The padding is the space inside the box, between the content and the border. 
+
+got image and text side by side
+
+goal: 
+-responsiveness if screen size change text and image
+-text overflow if screen size change -> fix
+-image alignment messed up if screen size change -> fix
+
+5/10
+
+responsiveness of modal: resize
+- @media only screen and (max-width: 800px) 
+- include teh respetive sections and resize as necessary
+
+fixed mostly by editing : margin-top fo reach diff size of max-width: for media
+
+--------------
+
+5/11
+
+- fix stacking of selections based on screen size
+- fix image size animation when screen size reduce: max-width: 60vw; /* 60% of the viewport width */
+
+-------------------
+
+5/12
+
+- fix text position for option selection if screen height minimized
+
+✅ Step-by-Step Breakdown
+1. Wrap Related Elements Together
+We grouped the GIF and the buttons inside a <div class="content-stack">.
+
+html
+Copy
+Edit
+<div class="content-stack">
+  <div class="fade-in-image">
+    <img ... />
+  </div>
+  <div class="character-container2">
+    <div class="centered2">...</div>
+    <div class="centered3">...</div>
+    <div class="centered4">...</div>
+  </div>
+</div>
+This is important because it allows you to control the vertical flow of the layout — GIF first, buttons below — using Flexbox.
+
+2. Target Small Screen Heights
+We used a media query:
+
+css
+Copy
+Edit
+@media only screen and (max-height: 700px) {
+  ...
+}
+This triggers the style changes only when the screen height is small, which is exactly what you asked for.
+
+3. Stack Elements Vertically Inside content-stack
+css
+Copy
+Edit
+.content-stack {
+  display: flex;
+  flex-direction: column; /* vertical stacking */
+  align-items: center;
+  justify-content: flex-start;
+}
+This stacks the GIF on top and the buttons below, instead of overlaying or absolutely positioning them.
+
+4. Make Buttons Flow Horizontally
+css
+Copy
+Edit
+.character-container2 {
+  display: flex;
+  flex-direction: row;      /* lay out children side by side */
+  justify-content: center;  /* center the row */
+  gap: 20px;                /* space between buttons */
+  position: static;         /* remove absolute positioning */
+}
+This ensures the buttons align in a horizontal row, even in small screen height.
+
+5. Remove Absolute Positioning from Buttons
+css
+Copy
+Edit
+.centered2, .centered3, .centered4 {
+  position: static;         /* let them flow naturally in the layout */
+  transform: none;          /* remove translate(-50%, -50%) */
+  display: inline-block;
+  ...
+}
+This step is critical — originally, your buttons were absolutely positioned (like floating layers), so they were not part of the normal document flow. That’s great for full screens, but it breaks when the screen is small.
+
+By switching them to static, they follow normal layout rules and can appear underneath the GIF, not on top or beside it.
+
+Scrollable wrapper if height miniized:
+
+1. Ensure the body and html can scroll:
+css
+Copy
+Edit
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-y: auto; /* allow scrolling */
+}
+
+- new issue
+how to align resume in modal and close pop up
+
+----------------
+5/13
+
+- finished aligning resume and its responsiveness

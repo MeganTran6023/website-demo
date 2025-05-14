@@ -1,0 +1,627 @@
+/* Styles for header */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    min-height: 100vh;
+  }
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Put in the very front */
+    z-index: 2;        
+
+    /* Font styling */
+
+  font-family: "Press Start 2P", system-ui;
+  font-size: 245%;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+/* button text - project */
+.centered2 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Put in the very front */
+    z-index: 2;        
+
+    /* Font styling */
+
+  font-family: "Press Start 2P", system-ui;
+  font-size: 190%;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .centered3 {
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    left: 75%;
+    /* Put in the very front */
+    z-index: 2;        
+
+    /* Font styling */
+
+  font-family: "Press Start 2P", system-ui;
+  font-size: 190%;
+  font-weight: 400;
+  font-style: normal;
+  }
+  .centered4 {
+    position: absolute;
+    top: 80%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+  
+    font-family: "Press Start 2P", system-ui;
+    font-size: 190%;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Hovering effect for text */
+  .centered2:hover {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 225%;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2; 
+  }
+  .centered3:hover {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 225%;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2; 
+  }
+  .centered4:hover {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 225%;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 2; 
+  }
+/* Reset default margin */
+body {
+    margin: 0;
+
+    /* Flexbox centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Full height */
+    min-height: 100vh;
+    
+}
+
+/* Make the GIF responsive */
+img {
+    max-width: 60vw; /* 60% of the viewport width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+/* Fade in effect for GIF */
+.fade-in-image{
+    animation: fadeIn 2s;
+}
+
+/* controls opacity for fade*/
+@keyframes fadeIn {
+    0% {opacity: 0; }
+    100% {opacity: 1; }
+}
+
+/* Stack text when viewed on mobile devices or smaller screens */
+@media only screen and (max-width: 1000px) {
+  .centered2, .centered3, .centered4 {
+      position: static; /* Let elements flow normally */
+      transform: none;  /* Remove centering transform */
+      display: block;
+      width: 100%;
+      float: none;
+      padding: 5% 0;
+      text-align: center;
+      box-sizing: border-box;
+  }
+
+  /* Optional: add margin for spacing between them */
+  .centered2 + .centered3,
+  .centered3 + .centered4 {
+      margin-top: 10px;
+  }
+
+}
+
+/* remove default blue color for links */
+
+a {
+  color: inherit; 
+  text-decoration: none;
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+#lightbox img {
+  max-width: none; /* Allow overflow for zoom */
+  max-height: none;
+  transition: transform 0.1s ease;
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* modal */
+  /* Use a wrapper class to center only the login box */
+  .wrapper {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 62%;
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+  /* close button */
+  .wrapper .icon-close {
+    position: absolute;
+    top: 10px;     /* distance from top */
+    right: 10px;   /* distance from right */
+  }
+  .wrapper .icon-close img {
+    width: 30px;       /* adjust size as needed */
+    height: 30px;
+    cursor: pointer;   /* makes it behave like a button */
+  }
+  
+  .wrapper.active-popup {
+    pointer-events: auto;
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* About me image */
+  .wrapper .icon img {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* padding-right: 10%; */
+    margin-top: 3%;
+    margin-bottom: 5%;
+    /* height: auto; Maintain aspect ratio */
+    flex: 1;
+    max-width: 100%;
+    display: block;
+  }
+  
+  .text {
+    flex: 2;
+    margin-left: 47%;
+    position: absolute;
+    top: 10%;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 140%;
+    font-weight: 180;
+    font-style: normal;
+  }
+/* modal for resume */
+ /* Use a wrapper class to center only the login box */
+  .wrapper_resume {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 40%;
+    height: 90%;
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+  /* close button */
+  .wrapper_resume .icon-close1 {
+    position: absolute;
+    top: 10px;     /* distance from top */
+    right: 10px;   /* distance from right */
+  }
+  .wrapper_resume .icon-close1 img {
+    width: 30px;       /* adjust size as needed */
+    height: 30px;
+    cursor: pointer;   /* makes it behave like a button */
+  }
+    .wrapper_resume .icon1 img{
+    padding-left: 2.5%;
+    max-width: 95%;
+    display: block;
+  }
+  
+  .wrapper_resume.active-popup {
+    pointer-events: auto;
+    transform: scale(1);
+    opacity: 1;
+  }
+/* media for modal */
+
+/* If screen size affect horizontally */
+/* modal - about me */
+@media screen and (max-height: 700px) {
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-y: auto; /* allow scrolling */
+}
+  .wrapper {
+    height: 90vh; /* use viewport height instead of 110% */
+    max-height: 90vh;
+    overflow-y: auto; /* allow vertical scroll */
+    align-items: flex-start; /* top-align content */
+  }
+
+  .text {
+    position: static; /* remove absolute so it flows with scroll */
+    margin-left: 0; /* optional: center text if needed */
+    padding: 20px;
+  }
+
+  .wrapper .icon img {
+    width: 80%; /* shrink image for small viewports */
+    margin: 20px auto;
+  }
+
+  /* for resume */
+    .wrapper_resume {
+    height: 90vh; /* use viewport height instead of 110% */
+    max-height: 90vh;
+    overflow-y: auto; /* allow vertical scroll */
+    align-items: flex-start; /* top-align content */
+  }
+    .wrapper_resume .icon1 img {
+    width: 80%; /* shrink image for small viewports */
+    margin: 20px auto;
+}
+}
+
+
+@media only screen and (max-height: 700px) {
+  .character-container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping if space is tight */
+    margin-top: 20px;
+    gap: 20px;
+    position: static;
+  }
+
+  .centered2,
+  .centered3,
+  .centered4 {
+    position: static;
+    transform: none;
+    display: inline-block;
+    font-size: 120%; /* optional: adjust for small screens */
+    margin: 0;
+    padding: 10px 15px;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+/* If screen size affect vertically */
+@media only screen and (max-width: 1800px) {
+  .wrapper {
+
+    height: 65%;/* changed for smaller size */
+
+  }
+    /* About me image */
+    .wrapper .icon img {
+      
+      width: 40%;
+      margin-left: 5%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+      .text {
+    flex: 2;
+    margin-left: 47%;
+    position: absolute;
+    top: 10%;
+    margin-right: 5%;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 120%;
+    font-weight: 160;
+    font-style: normal;
+  }
+
+}
+
+@media only screen and (max-width: 1400px) {
+  .wrapper {
+
+    height: 65%;/* changed for smaller size */
+
+  }
+    /* About me image */
+    .wrapper .icon img {
+      
+      width: 40%;
+      margin-left: 5%;
+      margin-top: 5%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+
+}
+@media only screen and (max-width: 1000px) {
+  .wrapper {
+
+    height: 65%;/* changed for smaller size */
+
+  }
+    /* About me image */
+    .wrapper .icon img {
+      width: 40%;
+      margin-left: 5%;
+      margin-top: 5%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+
+}
+@media only screen and (max-width: 1000px) {
+  .wrapper {
+
+    height: 60%;/* changed for smaller size */
+
+  }
+    /* About me image */
+    .wrapper .icon img {
+      width: 40%;
+      margin-left: 5%;
+      /* padding-right: 10%; */
+      margin-top: 20%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+  .text {
+    flex: 2;
+    margin-left: 47%;
+    position: absolute;
+    top: 10%;
+    margin-right: 5%;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 100%;
+    font-weight: 150;
+    font-style: normal;
+  }
+  /* for resume */
+    .wrapper_resume {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 60%;/* changed for smaller size */
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+    .wrapper_resume .icon1 img {
+      width: 60%;
+      padding-left: 20%;
+      height: 380%; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+}
+}
+
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 50%;/* changed for smaller size */
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+    /* About me image */
+    .wrapper .icon img {
+      width: 40%;
+      margin-left: 5%;
+      /* padding-right: 10%; */
+      margin-top: 20%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+  .text {
+    flex: 2;
+    margin-left: 47%;
+    position: absolute;
+    top: 10%;
+    margin-right: 5%;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 90%;
+    font-weight: 150;
+    font-style: normal;
+  }
+  /* for resume */
+    .wrapper_resume {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 50%;/* changed for smaller size */
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+    .wrapper_resume .icon1 img {
+      width: 60%;
+      height: 380%; /* Maintain aspect ratio */
+      padding-left: 20%;
+      flex: 1;
+      max-width: 100%;
+      display: block;
+}
+}
+
+@media only screen and (max-width: 700px) {
+  .wrapper {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 50%;/* changed for smaller size */
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+    /* About me image */
+    .wrapper .icon img {
+      width: 40%;
+      margin-left: 5%;
+      /* padding-right: 10%; */
+      margin-top: 20%;
+      height: auto; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+    }
+  .text {
+    flex: 2;
+    margin-left: 47%;
+    position: absolute;
+    top: 10%;
+    margin-right: 5%;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 70%;
+    font-weight: 150;
+    font-style: normal;
+  }
+  /* for resume */
+    .wrapper_resume {
+    pointer-events: none;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 50%;/* changed for smaller size */
+    /* background: transparent; */
+    position: fixed; /* important: take it out of document flow */
+    border-radius: 20px;
+    background-color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0);
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* transition */
+    z-index: 1001;
+    padding: 20px;
+    gap: 20px;
+  }
+    .wrapper_resume .icon1 img {
+      width: 60%;
+      height: 380%; /* Maintain aspect ratio */
+      flex: 1;
+      max-width: 100%;
+      display: block;
+}
+}
